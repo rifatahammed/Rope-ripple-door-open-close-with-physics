@@ -280,9 +280,9 @@ MonoBehaviour:
   length: 5
   partDistance: 0.21
   reset: 0
-  spawn: 0
-  snapFirst: 0
-  snapLast: 0
+  spawn: 1
+  snapFirst: 1
+  snapLast: 1
 --- !u!4 &851591435
 Transform:
   m_ObjectHideFlags: 0
