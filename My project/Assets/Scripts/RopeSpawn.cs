@@ -15,7 +15,7 @@ public class RopeSpawn : MonoBehaviour
     float partDistance = 0.21f;
 
     [SerializeField]
-    boot reset,spawn,snapFirst,snapLast;
+    bool reset,spawn,snapFirst,snapLast;
 
     // Start is called before the first frame update
     // void Start()
@@ -28,7 +28,7 @@ public class RopeSpawn : MonoBehaviour
     {
         if(reset)
         {
-            foreach (GameObject tmp in GameObject.FindGameObjetsWithTag("Player"))
+            foreach (GameObject tmp in GameObject.FindGameObjectsWithTag("Player"))
             {
                 Destroy(tmp);
             }
@@ -52,7 +52,7 @@ public class RopeSpawn : MonoBehaviour
             GameObject tmp;
             tmp = Instantiate(partPrefab, new Vector3(transform.position.x,transform.position.y + partDistance * (x+1) ,transform.position.z), Quaternion.identity,parentObject.transform );
 
-            tmp.transform.eularAngles = new Vector3(180,0,0);
+            tmp.transform.eulerAngles = new Vector3(180,0,0);
 
 
             tmp.name = parentObject.transform.childCount.ToString();
@@ -61,7 +61,7 @@ public class RopeSpawn : MonoBehaviour
                 Destroy(tmp.GetComponent<CharacterJoint>());
             }
             else{
-                tmp.GetComponent<CharacterJoint>().connectedBody = parentObject.transform.Find(parentObject.transform.childCount -1).ToString().GetComponent<Rigidbody>();
+                tmp.GetComponent<CharacterJoint>().connectedBody = parentObject.transform.Find((parentObject.transform.childCount -1).ToString()).GetComponent<Rigidbody>();
             }
 
 
